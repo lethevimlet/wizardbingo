@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wizard Bingo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/pako@1.0.11/dist/pako.min.js"></script>
+</head>
+<body>
+
+    <div id="menu">
+        <button id="resetButton"><i class="fas fa-redo"></i> Reset</button>
+        <button id="shareButton"><i class="fas fa-share-alt"></i> Share Progress</button>
+    </div>
+
+
+    <div class="web-title">The Wizard Bingo</div>
+    <div class="description">
+        <p>Crafted by <a href="https://www.instagram.com/levi.blader/" target="_blank">@levi.blader</a> and originally designed by <a href="https://www.instagram.com/billyarlew/" target="_blank">@billyarlew</a>, this site is perfect for anyone looking to challenge themselves and hone their wizardry skills. Explore a variety of activities and games designed to test your magical prowess and enhance your wizarding capabilities in a fun, interactive environment. Join the adventure and see how you measure up in the world of wizards!</p>
+    </div>
+
+    <table id="ratingTable">
+        <!-- Top spacers and labels -->
+        <tr>
+            <td class="spacer"></td>
+            <td colspan="3" class="title">Left</td>
+            <td class="spacer-thin"></td>
+            <td colspan="3" class="title">Right</td>
+            <td class="spacer"></td>
+        </tr>
+        <!-- Content rows -->
+
+        <!-- Row 1 -->
+        <tr>
+            <td rowspan="3" class="title vertical">Front</td>
+            <td class="content yellow" id="r1c1"><div>Tsunami</div><div class="stars"></div></td>
+            <td class="content blue" id="r1c2"><div>Open Gazelle S</div><div class="stars"></div></td>
+            <td class="content blue" id="r1c3"><div>Closed Gazelle S</div><div class="stars"></div></td>
+            <td class="spacer-thin"></td>
+            <td class="content blue" id="r1c4"><div>Closed Gazelle S</div><div class="stars"></div></td>
+            <td class="content blue" id="r1c5"><div>Open Gazelle S</div><div class="stars"></div></td>
+            <td class="content yellow" id="r1c6"><div>Tsunami</div><div class="stars"></div></td>
+            <td rowspan="3" class="title vertical">Front</td>
+        </tr>
+
+        <!-- Row 2 -->
+        <tr>
+            <td class="content pink" id="r2c1"><div>Open Lion S</div><div class="stars"></div></td>
+            <td class="content light-blue" id="r2c2"><div>Open Gazelle</div><div class="stars"></div></td>
+            <td class="content  light-blue" id="r2c3"><div>Closed Gazelle</div><div class="stars"></div></td>
+            <td class="spacer-thin"></td>
+            <td class="content light-blue" id="r2c4"><div>Closed Gazelle</div><div class="stars"></div></td>
+            <td class="content light-blue" id="r2c5"><div>Open Gazelle</div><div class="stars"></div></td>
+            <td class="content pink" id="r4c6"><div>Open Lion S</div><div class="stars"></div></td>
+        </tr>
+
+        <!-- Row 3 -->
+        <tr>
+            <td class="content pink" id="r3c1"><div>Closed Lion S</div><div class="stars"></div></td>
+            <td class="content light-pink" id="r3c2"><div>Open Lion</div><div class="stars"></div></td>
+            <td class="content light-pink" id="r3c3"><div>Closed Lion</div><div class="stars"></div></td>
+            <td class="spacer-thin"></td>
+            <td class="content light-pink" id="r3c4"><div>Closed Lion</div><div class="stars"></div></td>
+            <td class="content light-pink" id="r3c5"><div>Open Lion</div><div class="stars"></div></td>
+            <td class="content pink" id="r3c6"><div>Closed Lion S</div><div class="stars"></div></td>
+        </tr>
+
+        <tr>
+            <td colspan="9" class="spacer-thin-horizontal"></td>
+        </tr>
+
+        <!-- Row 4 -->
+        <tr>
+            <td rowspan="3" class="title vertical">Back</td>
+            <td class="content pink" id="r4c1"><div>Closed Lion S</div><div class="stars"></div></td>
+            <td class="content light-pink" id="r4c2"><div>Open Lion</div><div class="stars"></div></td>
+            <td class="content light-pink" id="r4c3"><div>Closed Lion</div><div class="stars"></div></td>
+            <td class="spacer-thin"></td>
+            <td class="content light-pink" id="r4c4"><div>Closed Lion</div><div class="stars"></div></td>
+            <td class="content light-pink" id="r4c5"><div>Open Lion</div><div class="stars"></div></td>
+            <td class="content pink" id="r4c6"><div>Closed Lion S</div><div class="stars"></div></td>
+            <td rowspan="3" class="title vertical">Back</td>
+        </tr>
+
+        <!-- Row 5 -->
+        <tr>
+            <td class="content pink" id="r5c1"><div>Open Lion S</div><div class="stars"></div></td>
+            <td class="content light-blue" id="r5c2"><div>Open Gazelle</div><div class="stars"></div></td>
+            <td class="content light-blue" id="r5c3"><div>Closed Gazelle</div><div class="stars"></div></td>
+            <td class="spacer-thin"></td>
+            <td class="content light-blue" id="r5c4"><div>Closed Gazelle</div><div class="stars"></div></td>
+            <td class="content light-blue" id="r5c5"><div>Open Gazelle</div><div class="stars"></div></td>
+            <td class="content pink" id="r5c6"><div>Open Lion S</div><div class="stars"></div></td>
+        </tr>
+
+        <!-- Row 6 -->
+        <tr>
+            <td class="content yellow" id="r6c1"><div>Tsunami</div><div class="stars"></div></td>
+            <td class="content blue" id="r6c2"><div>Open Gazelle S</div><div class="stars"></div></td>
+            <td class="content blue" id="r6c3"><div>Closed Gazelle S</div><div class="stars"></div></td>
+            <td class="spacer-thin"></td>
+            <td class="content blue" id="r6c4"><div>Closed Gazelle S</div><div class="stars"></div></td>
+            <td class="content blue" id="r6c5"><div>Open Gazelle S</div><div class="stars"></div></td>
+            <td class="content yellow" id="r6c6"><div>Tsunami</div><div class="stars"></div></td>
+        </tr>
+ 
+        <tr>
+      
+        </tr>
+        <!-- Bottom spacers and labels -->
+        <tr>
+            <td class="spacer"></td>
+            <td colspan="3" class="title">Left</td>
+            <td class="spacer-thin"></td>
+            <td colspan="3" class="title">Right</td>
+            <td class="spacer"></td>
+        </tr>
+    </table>
+
+    <div id="shareModal">
+        <p class="dialog-title">Copy this URL to share:</p>
+        <input type="text" id="shareUrl" style="width: 100%;">
+        <button onclick="copyToClipboard()">Copy URL</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

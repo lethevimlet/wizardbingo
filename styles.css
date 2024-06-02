@@ -1,0 +1,181 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #2d2d2d;
+}
+
+a, a:hover, a:active, a:visited { 
+  color: #ffffff; 
+}
+
+#menu {
+  display: flex;
+  justify-content: end;
+  padding: 20px 10px 30px 10px;
+}
+
+.web-title {
+  font-size: 50px;
+  text-align: center;
+  color: #ffffff;
+  padding: 10px 40px;
+}
+
+.description {
+  color: #ffffff;
+  padding: 10px 40px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Ensures consistent column widths */
+}
+
+td {
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  height: 60px;
+}
+
+.spacer {
+  border: none;
+}
+
+.spacer-thin {
+  background-color: #646464;
+  border: none;
+  width: 10px;
+}
+
+.spacer-thin-horizontal {
+  background-color: #646464;
+  border: none;
+  height: 10px;
+}
+
+.title {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.vertical {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg); /* Rotates vertical text for readability */
+}
+
+.content {
+  cursor: pointer; /* Indicates that the cells are interactive */
+}
+
+.stars {
+  font-size: 20px;
+  user-select: none;
+}
+
+.star {
+  color: #ffbf04;
+}
+
+.star.gray {
+  color: #ccc;
+}
+
+.blue {
+  background-color: #8ca7e1;
+}
+
+.light-blue {
+  background-color: #c8e3ec;
+}
+
+.pink {
+  background-color: #f7abab;
+}
+
+.light-pink {
+  background-color: #fdeded;
+}
+
+.yellow {
+  background-color: #f5ffb6;
+}
+
+.dialog-title {
+  font-size: 20px;
+}
+
+#shareModal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 300px;
+  border-radius: 7px;
+}
+
+input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 2px solid rgb(51, 51, 51);
+}
+
+button {
+  padding: 10px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 7px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  border: 3px solid #3a2c65;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button i {
+  margin-right: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  table {
+      font-size: 12px; /* Smaller font size for better fit */
+  }
+
+  td {
+      padding: 5px; /* Smaller padding */
+      height: 25px; /* Shorter cells to save space */
+  }
+
+  .title, .content {
+      font-size: 10px; /* Smaller text to fit more content */
+  }
+
+  .stars {
+      font-size: 16px; /* Smaller stars */
+  }
+
+  .vertical {
+      writing-mode: horizontal-tb; /* Switch vertical titles to horizontal */
+      transform: none; /* Remove rotation */
+  }
+}
